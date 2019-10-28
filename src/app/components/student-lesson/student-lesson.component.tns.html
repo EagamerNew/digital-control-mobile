@@ -1,0 +1,77 @@
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sideStackLayout side">
+                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Мой профил" class="sideLabel sideLightGrayLabel"
+                       (tap)="navigate('/profile/1')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout tkMainContent style="background-color: #F5F5F5">
+        <StackLayout class="navBar">
+            <GridLayout rows="*" columns="2*,20*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10"
+                       stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView class="container">
+            <GridLayout rows="*,*,*,*,*">
+                <StackLayout row="1">
+                    <GridLayout rows="*,*">
+                        <Label row="0" text="Добро пожаловать," style="font-size: 20"></Label>
+                        <Label row="1" text="{{user.name}} {{user.lastname}}!" style="font-size: 20"></Label>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout row="3" style="margin-top: 30">
+                    <GridLayout rows="*,*,*,*">
+                        <StackLayout row="0">
+                            <Label row="0" text="Следующий урок" style="font-size: 14"></Label>
+                        </StackLayout>
+                        <StackLayout row="1" style="margin-top: 10">
+                            <GridLayout rows="*" columns="*,*">
+                                <Label row="0" col="0" text="Автоматизация" style="font-size: 20"></Label>
+                                <Label row="0" col="1" text="16:00-17:00"
+                                       style="font-size: 20;text-align:right"></Label>
+
+                            </GridLayout>
+                        </StackLayout>
+                        <StackLayout row="2" style="margin-top: 12">
+                            <Button *ngIf="true" text="Зарегистрироваться" class="my-button input-border"
+                                    (tap)="Registration()"></Button>
+                            <Label *ngIf="false" text="Вы на уроке" style="font-size: 14"></Label>
+                        </StackLayout>
+                        <StackLayout row="3" style="margin-top: 20;">
+                            <GridLayout rows="*,*,*">
+                                <StackLayout row="0">
+                                    <Label text="Успеваемость" style="font-size: 14;"></Label>
+                                </StackLayout>
+                                <StackLayout row="1" class="boxes">
+                                    <GridLayout rows="*,*, *">
+                                        <Progress [value]="progressValue" row="0"
+                                                  maxValue="100" class="m-20">
+                                        </Progress>
+                                        <Label row="1" text="Посещенные занятие 85%"
+                                               style="font-size: 14;margin-left: 20"></Label>
+                                        <Label row="2" text="Пропусщенные занятие 15%"
+                                               style="font-size: 14;margin-left: 20"></Label>
+                                    </GridLayout>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</RadSideDrawer>

@@ -1,0 +1,115 @@
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sideStackLayout side">
+                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Мой профил" class="sideLabel sideLightGrayLabel"
+                       (tap)="navigate('/profile/1')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout tkMainContent style="background-color: #f5f5f5">
+        <StackLayout class="navBar">
+            <GridLayout rows="*" columns="2*,20*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10"
+                       stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView class="container">
+            <GridLayout rows="*,*">
+                <StackLayout row="1">
+                    <GridLayout rows="*,*,*,*">
+                        <StackLayout row="0">
+                            <Label text="< Ахметов Даулет" style="font-size: 20;"></Label>
+                        </StackLayout>
+                        <StackLayout row="1" style="margin-top: 20;">
+                            <GridLayout rows="*,*,*">
+                                <StackLayout row="0">
+                                    <Label text="Успеваемость" style="font-size: 12"></Label>
+                                </StackLayout>
+                                <StackLayout row="1" class="box">
+                                    <GridLayout rows="*,*, *">
+                                        <Progress [value]="progressValue" row="0"
+                                                  maxValue="100" class="m-20">
+                                        </Progress>
+                                        <Label row="1" text="Посещенные занятие 85%"
+                                               style="font-size: 12;margin-left: 20"></Label>
+                                        <Label row="2" text="Пропусщенные занятие 15%"
+                                               style="font-size: 12;margin-left: 20"></Label>
+
+                                    </GridLayout>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                        <StackLayout row="2">
+                            <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*">
+                                <Label row="0" text="Личные данные"
+                                       style="font-size: 13;margin-top: 10;margin-bottom: 10"></Label>
+                                <Label row="1" text="ИИН"
+                                       class="tittle"></Label>
+                                <Label row="2" text="890712345678"
+                                       class="value"></Label>
+                                <Label row="3" text="Дата регистраций"
+                                       class="tittle"></Label>
+                                <Label row="4" text="12.11.2018"
+                                       class="value"></Label>
+                                <Label row="5" text="Район"
+                                       class="tittle"></Label>
+                                <Label row="6" text="Алмалинский"
+                                       class="value"></Label>
+                                <Label row="7" text="Телефон"
+                                       class="tittle"></Label>
+                                <Label row="8" text="87007974994"
+                                       class="value"></Label>
+                                <Label row="9" text="Почта"
+                                       class="tittle"></Label>
+                                <Label row="10" text="Zivadinov.b@gmail.com"
+                                       class="value"></Label>
+                            </GridLayout>
+                        </StackLayout>
+                        <StackLayout row="3">
+                            <GridLayout rows="*,*,*,*,*,*,*,*,*">
+                                <Label row="0" text="Профессиональные данные"
+                                       style="font-size: 13;margin-top: 10;margin-bottom: 10"></Label>
+                                <Label row="1" text="Специализация"
+                                       class="tittle"></Label>
+                                <Label row="2" text="Автомеханик"
+                                       class="value"></Label>
+                                <Label row="3" text="Высшее образование"
+                                       class="tittle"></Label>
+                                <Label row="4" text="Имеется"
+                                       class="value"></Label>
+                                <Label row="5" text="Квалификация"
+                                       class="tittle"></Label>
+                                <Label row="6" text="Средняя"
+                                       class="value"></Label>
+                                <Label row="7" text="Навыки"
+                                       class="tittle"></Label>
+                                <StackLayout row="8">
+                                    <GridLayout rows="*,*,*">
+                                        <Label row="0" text="Навык 1"
+                                               class="value"></Label>
+                                        <Label row="1" text="Навык 1"
+                                               class="value"></Label>
+                                        <Label row="2" text="Навык 1"
+                                               class="value"></Label>
+                                    </GridLayout>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</RadSideDrawer>

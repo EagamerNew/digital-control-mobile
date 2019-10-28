@@ -1,0 +1,13 @@
+<GridLayout rows="25, 50" class="main-page-action-bar">
+    <GridLayout row="1" columns="auto,*,auto,auto" class="wrapper">
+        <Label col="0" class="fal action-bar-btn" text="&#xf0c9;" (tap)="openMenu()"></Label>
+        <GridLayout col="1">
+            <FlexboxLayout class="search-bar" (tap)="onPageSearch()">
+                <Label class="search-text" [text]="searchText | translate"></Label>
+                <Label class="fal" text="&#xf002;"></Label>
+            </FlexboxLayout>
+        </GridLayout>
+        <Label col="2" class="fal action-bar-btn" text="&#xf2f9;" (tap)="onBookUpdate()"></Label>
+        <Label col="3" class="fal action-bar-btn" text="&#xf029;" (tap)="onScanCode()"></Label>
+    </GridLayout>
+</GridLayout>

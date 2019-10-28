@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<GridLayout rows="3*,6*" class="container">
+    <GridLayout row="0">
+        <StackLayout class="logo">
+            <Image src="~/app/assets/logo.png" stretch="aspectFit"></Image>
+        </StackLayout>
+    </GridLayout>
+    <GridLayout row="1" rows="*, auto" class="wrapper">
+        <ScrollView row="0">
+            <GridLayout rows="2*,3*,4*,*,">
+                <StackLayout row="0" class="login-btn text-center tittle">
+                    <Label text="Регистрация" style="color:#585858;font-size: 25;margin-bottom: 10" textWrap="true"></Label>
+                </StackLayout>
+                <StackLayout row="1" class="login-btn">
+                    <TextView hint="Электронная почта" [(ngModel)]="registration.email" class="input input-border"></TextView>
+                </StackLayout>
+                <StackLayout row="2" class="login-btn">
+                    <TextView hint="Телефон" [(ngModel)]="registration.phone"  class="input input-border"></TextView>
+                </StackLayout>
+                <StackLayout row="3" class="login-btn">
+                    <Button text="Войти" class="my-button input-border" style="height: 40"  (tap)="Login()"></Button>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+        <StackLayout row="1" style="margin-bottom: 30">
+            <GridLayout rows="8*,30*">
+                <StackLayout row="0" class="text-center registor" (tap)="navigate('/home')">
+                    <Label text="У меня есть аккаунт" textWrap="true" style="color:#585858;"></Label>
+                </StackLayout>
+                <StackLayout row="1" class="text-center registor2">
+                    <Label text="Авторизоваться" textWrap="true"  style="color:#585858;margin-top: 10"></Label>
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+    </GridLayout>
+</GridLayout>

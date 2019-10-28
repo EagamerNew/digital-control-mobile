@@ -1,0 +1,51 @@
+
+.container {
+    background-color: #F5F5F5;
+}
+.input-border{
+    background-color: white;
+    width: 90%;
+    height: 40;
+    margin: 5;
+}
+.logo {
+    horizontal-align: center;
+    vertical-align: bottom;
+    width: 150;
+}
+Image {
+    height: 120;
+}
+.tittle{
+    font-size: 30;
+}
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+.login-btn {
+    margin: 5;
+}
+
+.my-button {
+    android-elevation: 4;
+    background-color: #AE00FF;
+    border-color: darkolivegreen;
+    color: #F7B6FE;
+    font-size: 18;
+}
+.reset{
+    font-size: 13;
+    margin-top: 15;
+}
+.registor{
+    font-size: 13;
+}
+.registor2{
+    font-size: 13;
+
+}
+.my-button:active {
+
+}

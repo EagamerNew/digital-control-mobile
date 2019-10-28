@@ -1,0 +1,56 @@
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sideStackLayoutMenu side">
+                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Список учащихся" class="sideLabel sideLightGrayLabel"(tap)="navigate('/all-students')" ></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout tkMainContent style="background-color: #F5F5F5">
+        <StackLayout class="navBar">
+            <GridLayout rows="*" columns="2*,20*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10" stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView class="container">
+            <GridLayout rows="*">
+                <StackLayout row="0">
+                    <GridLayout rows="*,*">
+                        <StackLayout row="0">
+                            <Label text="Все учещиеся(125)"  style="font-size: 23;margin-bottom: 10"></Label>
+                        </StackLayout>
+                        <StackLayout row="1">
+                            <GridLayout rows="*,*">
+                                <StackLayout row="0" class="student-box" >
+                                    <GridLayout rows="*" columns="*,*" style="margin-left: 10;margin-right: 10" (tab)="navigate('/profile/1')">
+                                        <Label row="0" col="0" text="Ахметов Даулет"  style="font-size: 15"></Label>
+                                        <Label row="0" col="1" text="Профиль"
+                                               style="font-size: 15;text-align: right"></Label>
+                                    </GridLayout>
+                                </StackLayout>
+                                <StackLayout row="1" class="student-box">
+                                    <GridLayout rows="*" columns="*,*" style="margin-left: 10;margin-right: 10">
+                                        <Label row="0" col="0" text="Ахметов Даулет" style="font-size: 15"></Label>
+                                        <Label row="0" col="1" text="Профиль"  (tab)="navigate('/profile/1')"
+                                               style="font-size: 15;text-align: right"></Label>
+                                    </GridLayout>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</RadSideDrawer>

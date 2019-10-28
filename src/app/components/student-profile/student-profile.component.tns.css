@@ -1,0 +1,118 @@
+
+.drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.drawerContentButton {
+    margin: 10;
+    horizontal-align: left;
+}
+
+.sideStackLayout {
+    background-color: white;
+}
+
+
+.sideStackLayoutMenu {
+    background-color: white;
+    margin-left: 10;
+    margin-right: 10;
+}
+
+.sideTitleStackLayout {
+    background-color: black;
+    height: 100%;
+}
+
+.container {
+    margin-right: 20;
+    margin-left: 20;
+    margin-top: 20;
+}
+
+.navtext {
+    color: aliceblue;
+    margin-top: 50%;
+    margin-left: 10%;
+}
+
+.sideLabel {
+    padding: 10;
+}
+
+.sideLightGrayLabel {
+    background-color: white;
+}
+
+.box {
+    margin-top: 10;
+    height: 110;
+    background-color: white;
+}
+
+Progress {
+    color: #5dff55;
+    background-color: rgba(52, 49, 42, 0.31);
+
+}
+
+.tittle {
+    font-size: 15;
+    color: lightgray;
+}
+
+.value {
+    margin-top: 5;
+    font-size: 17;
+
+}
+
+.navBar {
+    margin-bottom: 20;
+    height: 50;
+    background-color: #343434;
+}
+.drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.drawerContentButton {
+    margin: 10;
+    horizontal-align: left;
+}
+
+.sideStackLayout {
+    background-color: white;
+}
+.side{
+    margin-right: 15;
+    margin-left: 15;
+}
+
+.sideStackLayoutMenu {
+    background-color: white;
+    margin-left: 10;
+    margin-right: 10;
+}
+
+.sideTitleStackLayout {
+    background-color: #343434;
+    height: 100%;
+}
+
+.navtext {
+    color: aliceblue;
+    margin-top: 50%;
+    margin-left: 10%;
+}
+
+.sideLabel {
+    padding: 15;
+}
+
+.sideLightGrayLabel {
+    background-color: white;
+    font-size: 14;
+}

@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<GridLayout rows="3*,6*,*" class="container">
+    <GridLayout row="0">
+        <StackLayout class="logo">
+            <Image src="~/app/assets/logo.png" stretch="aspectFit"></Image>
+        </StackLayout>
+    </GridLayout>
+    <GridLayout row="1" rows="*, auto" class="wrapper">
+        <ScrollView row="0">
+            <GridLayout rows="2*,3*,4*,*,*">
+                <StackLayout row="0" class="login-btn text-center tittle">
+                    <Label text="Вход" style="color:#585858;font-size: 25;margin-bottom: 10" textWrap="true"></Label>
+                </StackLayout>
+                <StackLayout row="1" class="login-btn">
+                    <TextView hint="Телефон или e-mail" [(ngModel)]="login.email" class="input input-border"></TextView>
+                </StackLayout>
+                <StackLayout row="2" class="login-btn">
+                    <TextField secure="true" hint="Пароль" [(ngModel)]="login.password"
+                               class="input input-border"></TextField>
+                </StackLayout>
+                <StackLayout row="3" class="login-btn">
+                    <Button text="Войти" class="my-button input-border" style="height: 40"
+                            (tap)="Login($event)"></Button>
+                </StackLayout>
+                <StackLayout row="4" class="login-btn text-center reset">
+                    <Label text="Забыли пароль?" style="color:#585858;" textWrap="true"></Label>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout row="2" style="margin-top: -30">
+        <GridLayout rows="2*,3*">
+            <StackLayout row="0" class="text-center registor">
+                <Label text="Еще не зарегистрированы ?" textWrap="true" style="color:#585858;"></Label>
+            </StackLayout>
+            <StackLayout row="1" class="text-center registor2">
+                <Label text="Зарегистрировться" textWrap="true" (tap)="navigate('/registration')"
+                       style="color:#585858;"></Label>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+</GridLayout>

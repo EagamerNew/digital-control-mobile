@@ -1,0 +1,84 @@
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sideStackLayoutMenu side">
+                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Список учащихся" class="sideLabel sideLightGrayLabel"(tap)="navigate('/all-students')" ></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout tkMainContent style="background-color: #F5F5F5">
+        <StackLayout class="navBar">
+            <GridLayout rows="*" columns="2*,20*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10" stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView class="container">
+            <GridLayout rows="*,*,*">
+                <StackLayout row="1">
+                    <GridLayout rows="*,*,*,*,*">
+                        <StackLayout row="0">
+                            <Label text="Регистрация на урок" style="text-align: center;font-size: 23"></Label>
+                        </StackLayout>
+                        <StackLayout row="1">
+                            <Label text="«Автоматизация»"
+                                   style="text-align: center;font-size: 23;margin-top: 7"></Label>
+                        </StackLayout>
+                        <StackLayout row="2" class="barcode">
+                            <Image src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{qrCode}}"
+                                   stretch="aspectFit"></Image>
+                        </StackLayout>
+                        <StackLayout row="3" style="text-align: center;font-size: 15;margin-top: 7">
+                            <GridLayout rows="*,*,*,*">
+                                <Label row="0" text="Данный QR-код генерируется и" style="color: #ABABAB;font-size: 17"
+                                ></Label>
+                                <Label row="1" text="обновляется каждые 3 секунды." style="color: #ABABAB;font-size: 17"
+                                ></Label>
+                                <Label row="2" text="Покажите его ученикам, чтобы" style="color: #ABABAB;font-size: 17"
+                                ></Label>
+                                <Label row="3" text="они могли его отсканировать." style="color: #ABABAB;font-size: 17"
+                                ></Label>
+                            </GridLayout>
+                        </StackLayout>
+                        <StackLayout row="4">
+                            <GridLayout rows="*" columns="*,*" style="margin-left: 10;margin-right: 10;margin-top: 25" *ngFor="let student of students;let i = index" >
+                                <Label row="0" col="0" text="{{student.name}} {{student.surname}}"
+                                       style="font-size: 15;"></Label>
+                                <Label row="0" col="1" text="На уроке"
+                                       style="font-size: 15;text-align: right;color: #70BD84"></Label>
+                            </GridLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout row="2" style="margin-top: 20">
+                    <GridLayout rows="*,*">
+                        <StackLayout row="0" style="width: 100%;height: 40;background-color: #AE00FF">
+                            <GridLayout rows="*" columns="*,*" style="margin-left: 40;margin-right: 10" (tap)="stop()">
+                                <Label row="0" col="0" text="Обновить QR-код"
+                                       style="font-size: 13;color: white"></Label>
+                                <Label row="0" col="1" text="00:0{{time}}"
+                                       style="font-size: 13;text-align: right;color: white"></Label>
+                            </GridLayout>
+                        </StackLayout>
+                        <StackLayout row="1" style="width: 100%;height: 40;margin-top: 10;border-style:  solid;border-width: 1;border-color: black">
+                            <GridLayout rows="*" style="text-align: center;">
+                                <Label row="0" text="Завершить регистрацию" (tap)="end()"
+                                       style="font-size: 13;color: black;"></Label>
+                            </GridLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</RadSideDrawer>
