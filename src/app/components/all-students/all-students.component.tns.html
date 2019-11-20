@@ -1,51 +1,110 @@
 <RadSideDrawer tkExampleTitle tkToggleNavButton>
-    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
-        <StackLayout class="sideTitleStackLayout">
-            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+    <GridLayout tkDrawerContent rows="auto,auto,*" class="sideStackLayout">
+        <StackLayout row="0" class="sideTitleStackLayout">
+            <GridLayout columns="auto,*" class="container">
+                <Image col="0" src="~/app/assets/logo.png" style="width: 120pt;height: 60pt;"></Image>
+            </GridLayout>
+            <!--            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>-->
         </StackLayout>
-        <ScrollView row="1">
-            <StackLayout class="sideStackLayoutMenu side">
-                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Список учащихся" class="sideLabel sideLightGrayLabel"(tap)="navigate('/all-students')" ></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
+        <StackLayout row="1" class="container" style="margin-top: 12pt;margin-bottom: 17pt">
+            <GridLayout rows="*,*">
+                <StackLayout row="0">
+                    <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+                </StackLayout>
+                <StackLayout row="1">
+                    <Label text="Достык Education"
+                           style="color: rgba(37,44,50,0.6);font-size: 15pt"></Label>
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView row="2" style="margin-top: 10pt">
+            <GridLayout rows="*,*,*,20*" class="sideStackLayout ">
+                <Label row="0" text="Главная" class="sideLabel side" style="color: rgb(37, 44, 50);"
+                       (tap)="navigate('/teacherLesson')"></Label>
+                <GridLayout row="1" rows="*" columns="auto,*">
+                    <Label col="0" style="background-color: rgb(159,52,209);width: 4pt"></Label>
+                    <Label col="1" text="Список учащихся" class="sideLabel sideLightGrayLabel"
+                           style="color: rgb(37, 44, 50);"
+                           (tap)="navigate('/all-students')"></Label>
+                </GridLayout>
+
+                <Label row="2" text="Настройки" class="sideLabel side" style="color: rgb(37, 44, 50);"></Label>
+                <GridLayout row="3 " columns="auto,*" style="margin-left: 24pt" [class.iosExit]="ios"
+                            [class.androidExit]="!ios">
+                    <Image col="0" src="~/app/assets/log_out.png"
+                           style="height: 14pt;width: 12pt"
+                    ></Image>
+                    <Label col="1" text="Выйти из системы " class="sideLabel side"
+                           style="color: rgb(37, 44, 50);"
+                           (tap)="logout()"></Label>
+                </GridLayout>
+            </GridLayout>
         </ScrollView>
     </GridLayout>
-    <StackLayout tkMainContent style="background-color: #F5F5F5">
+    <StackLayout tkMainContent style="background-color: rgb(255,255,255)">
         <StackLayout class="navBar">
-            <GridLayout rows="*" columns="2*,20*">
-                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10" stretch="aspectFit"></Image>
-                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+            <GridLayout rows="*" columns="2*,16*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()"
+                       style="margin-left: 10;margin-top: 5pt;width: 24pt;height: 13.5pt"
+                       stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png"
+                       style="width: 120pt;height: 60pt !important;margin-top: 5pt"
+                       stretch="aspectFit"></Image>
             </GridLayout>
         </StackLayout>
         <ScrollView class="container">
             <GridLayout rows="*">
                 <StackLayout row="0">
-                    <GridLayout rows="*,*">
+                    <GridLayout rows="*,*,*">
                         <StackLayout row="0">
-                            <Label text="Все учещиеся(125)"  style="font-size: 23;margin-bottom: 10"></Label>
+                            <Label text="Все ученики"
+                                   style="font-size: 22pt;margin-bottom: 10;color:rgb(37,44,50)"></Label>
                         </StackLayout>
                         <StackLayout row="1">
-                            <GridLayout rows="*,*">
-                                <StackLayout row="0" class="student-box" >
-                                    <GridLayout rows="*" columns="*,*" style="margin-left: 10;margin-right: 10" (tab)="navigate('/profile/1')">
-                                        <Label row="0" col="0" text="Ахметов Даулет"  style="font-size: 15"></Label>
-                                        <Label row="0" col="1" text="Профиль"
-                                               style="font-size: 15;text-align: right"></Label>
-                                    </GridLayout>
-                                </StackLayout>
-                                <StackLayout row="1" class="student-box">
-                                    <GridLayout rows="*" columns="*,*" style="margin-left: 10;margin-right: 10">
-                                        <Label row="0" col="0" text="Ахметов Даулет" style="font-size: 15"></Label>
-                                        <Label row="0" col="1" text="Профиль"  (tab)="navigate('/profile/1')"
-                                               style="font-size: 15;text-align: right"></Label>
-                                    </GridLayout>
-                                </StackLayout>
+                            <Label text="Количество учеников: 123"
+                                   style="font-size: 15pt;margin-bottom: 10;color:rgba(37,44,50,0.6)"></Label>
+                        </StackLayout>
+                        <StackLayout row="2">
+                            <GridLayout rows="*,*,*">
+                                <GridLayout row="0" rows="*,*">
+                                    <StackLayout row="0" class="student-box">
+                                        <GridLayout rows="*,*"
+                                                    (tab)="navigate('/profile/1')">
+                                            <Label row="0" text="Ахметов Даулет"
+                                                   style="font-size: 17pt;color:rgb(37,44,50)"></Label>
+                                            <Label row="1" text="Ахметов Даулет"
+                                                   style="font-size: 13pt;color:rgba(37,44,50,0.6)"></Label>
+                                        </GridLayout>
+                                    </StackLayout>
+                                    <StackLayout row="1" class="hr-light"
+                                                 style="margin-top: 10pt"></StackLayout>
+                                </GridLayout>
+                                <GridLayout row="1" rows="*,*">
+                                    <StackLayout row="0" class="student-box">
+                                        <GridLayout rows="*,*"
+                                                    (tab)="navigate('/profile/1')">
+                                            <Label row="0" text="Ахметов Даулет"
+                                                   style="font-size: 17pt;color:rgb(37,44,50)"></Label>
+                                            <Label row="1" text="Сантехник"
+                                                   style="font-size: 13pt;color:rgba(37,44,50,0.6)"></Label>
+                                        </GridLayout>
+                                    </StackLayout>
+                                    <StackLayout row="1" class="hr-light"
+                                                 style="margin-top: 10pt"></StackLayout>
+                                </GridLayout>
+                                <GridLayout row="2" rows="*,*">
+                                    <StackLayout row="0" class="student-box">
+                                        <GridLayout rows="*,*"
+                                                    (tab)="navigate('/profile/1')">
+                                            <Label row="0" text="Ахметов Даулет"
+                                                   style="font-size: 17pt;color:rgb(37,44,50)"></Label>
+                                            <Label row="1" text="Механик"
+                                                   style="font-size: 13pt;color:rgba(37,44,50,0.6)"></Label>
+                                        </GridLayout>
+                                    </StackLayout>
+                                    <StackLayout row="1" class="hr-light"
+                                                 style="margin-top: 10pt"></StackLayout>
+                                </GridLayout>
                             </GridLayout>
                         </StackLayout>
                     </GridLayout>

@@ -4,7 +4,7 @@ import {RadSideDrawerComponent} from 'nativescript-ui-sidedrawer/angular';
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer';
 import {BarcodeScanner} from 'nativescript-barcodescanner';
 import variables from './variables';
-import {Page} from 'tns-core-modules/ui/page';
+import {isIOS, Page} from 'tns-core-modules/ui/page';
 import {User} from '@src/app/core/model/user';
 import {QrStudent} from '@src/app/core/model/qr-student';
 import {AuthService} from '@src/app/core/services/auth.service';
@@ -17,14 +17,27 @@ import {AuthService} from '@src/app/core/services/auth.service';
 export class StudentLessonComponent implements AfterViewInit, OnInit {
     user: User = new User();
     QR: QrStudent = new QrStudent();
+    progressColor: any;
+    progressValue = 85;
+    ios: boolean;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private barcodeScanner: BarcodeScanner,
                 private router: RouterExtensions,
                 private service: AuthService,
                 page: Page) {
+        this.ios = isIOS;
+
         page.actionBarHidden = true;
+        if (this.progressValue <= 12) {
+            this.progressColor = 'rgb(255,62,49)';
+        } else if (this.progressValue >= 12 && this.progressValue <= 72) {
+            this.progressColor = 'rgb(255,202,30)';
+        } else {
+            this.progressColor = 'rgb(62,194,95)';
+        }
     }
+
 
     ngOnInit() {
         require('nativescript-localstorage');
@@ -34,7 +47,6 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
 
     @ViewChild(RadSideDrawerComponent, {static: false}) public drawerComponent: RadSideDrawerComponent;
     private drawer: RadSideDrawer;
-    progressValue = 85;
 
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
@@ -61,7 +73,6 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
     }
 
     Registration() {
-        console.log(this.QR);
         this.barcodeScanner.scan(variables.scanOptions).then((result) => {
             this.QR.qrText = result.text;
             alert(this.QR.qrText);

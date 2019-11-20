@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@a
 import {RadSideDrawerComponent} from 'nativescript-ui-sidedrawer/angular';
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer';
 import {RouterExtensions} from 'nativescript-angular';
-import {Page} from 'tns-core-modules/ui/page/page';
+import {isIOS, Page} from 'tns-core-modules/ui/page/page';
 import {TeacherLesson} from '@src/app/core/model/teacher-lesson';
 import {User} from '@src/app/core/model/user';
 import {AuthService} from '@src/app/core/services/auth.service';
@@ -18,16 +18,17 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     reponse: any;
     students: any[] = [];
     list: any[];
+    ios: boolean;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 private service: AuthService,
                 page: Page) {
         page.actionBarHidden = true;
+        this.ios = isIOS;
     }
 
     ngOnInit() {
-        console.log('---------');
         require('nativescript-localstorage');
         this.user = JSON.parse(localStorage.getItem('user'));
         this.request.day = new Date().getDay().toString();
@@ -114,17 +115,14 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
             this.request.created += date.getMonth() + '.';
         }
         this.request.created += date.getFullYear().toString();
-        console.log(this.request);
         this.service.lessonTeacherGetMearest(this.request)
             .subscribe(res => {
                 this.reponse = res;
-                console.log(res);
                 require('nativescript-localstorage');
                 localStorage.setItem('lesson', res.id);
                 this.service.getStudentsByLesson(res.id)
                     .subscribe(res => {
                         this.students = res;
-                        console.log('students:',res);
                     });
             });
 
@@ -146,13 +144,13 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
         this._changeDetectionRef.detectChanges();
     }
 
-    Registration($event) {
+    Registration() {
+        console.log('clicked');
         this.router.navigate(['/qr'], {transition: {name: 'slide'}});
     }
 
 
     public openDrawer() {
-        console.log('as----d');
         this.drawer.showDrawer();
     }
 
@@ -165,7 +163,6 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     }
 
     getTime(time) {
-        console.log(time);
         if (time == 0) {
             return '00:00';
         } else if (time == 1) {

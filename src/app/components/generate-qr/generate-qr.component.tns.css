@@ -12,7 +12,17 @@ button {
     margin: 10;
     horizontal-align: left;
 }
+.time {
+    android-elevation: 4;
+    background-color: rgb(159,52,209);
+    color: white;
+    font-weight: bold;
+    font-size: 16pt;
+    height: 52pt;
+    width: 100%;
+    border-radius: 8pt 8pt 8pt 8pt;
 
+}
 .sideStackLayout {
     background-color: white;
 }
@@ -40,11 +50,17 @@ button {
 
 }
 
+button {
+    font-size: 15;
+    horizontal-align: center;
+}
 
-.navBar{
-    margin-bottom: 20;
-    height: 50;
-    background-color: #343434;
+.iosIcon {
+    margin-top: 7;
+}
+
+.androidIcon {
+    margin-top: 5
 }
 
 .drawerContentText {
@@ -58,9 +74,10 @@ button {
 }
 
 .sideStackLayout {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
-.side{
+
+.side {
     margin-right: 15;
     margin-left: 15;
 }
@@ -72,21 +89,49 @@ button {
 }
 
 .sideTitleStackLayout {
-    background-color: #343434;
-    height: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 80pt;
 }
 
 .navtext {
-    color: aliceblue;
-    margin-top: 50%;
-    margin-left: 10%;
+    color: rgb(37, 44, 50);
+    font-size: 17pt;
+    margin-top: 52%;
 }
 
 .sideLabel {
-    padding: 15;
+    font-size: 17pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    color: rgb(37, 44, 50);
+}
+
+.left {
+    margin-top: 1;
+}
+.iosExit{
+    margin-top: 250pt
+}
+.androidExit{
+    margin-top: 321pt
+}
+.navBar {
+    margin-bottom: 20;
+    margin-top: 5pt;
+    height: 35pt;
 }
 
 .sideLightGrayLabel {
-    background-color: white;
-    font-size: 14;
+    padding-left: 15pt;
+    background-color: rgba(159, 52, 209, 0.05);
+    color: rgb(159, 52, 209);
+    font-size: 17pt;
+    font-family: bold;
+}
+.space {
+    height: 10pt;
+}
+.container {
+    margin-right: 20;
+    margin-left: 20;
 }

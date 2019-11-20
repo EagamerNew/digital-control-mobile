@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@a
 import {RouterExtensions} from 'nativescript-angular';
 import {RadSideDrawerComponent} from 'nativescript-ui-sidedrawer/angular';
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer';
-import {Page} from 'tns-core-modules/ui/page';
+import {isIOS, Page} from 'tns-core-modules/ui/page';
 import {User} from '@src/app/core/model/user';
 
 @Component({
@@ -12,11 +12,20 @@ import {User} from '@src/app/core/model/user';
 })
 export class StudentProfileComponent implements AfterViewInit, OnInit {
     user: User = new User();
+    ios: boolean;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 page: Page) {
+        this.ios = isIOS;
         page.actionBarHidden = true;
+        if (this.progressValue <= 12) {
+            this.progressColor = 'rgb(255,62,49)';
+        } else if (this.progressValue >= 12 && this.progressValue <= 72) {
+            this.progressColor = 'rgb(255,202,30)';
+        } else {
+            this.progressColor = 'rgb(62,194,95)';
+        }
     }
 
     ngOnInit() {
@@ -34,7 +43,8 @@ export class StudentProfileComponent implements AfterViewInit, OnInit {
     }
     @ViewChild(RadSideDrawerComponent, {static: false}) public drawerComponent: RadSideDrawerComponent;
     private drawer: RadSideDrawer;
-    progressValue: any = 85;
+    progressValue: any = 10;
+    progressColor: any;
 
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;

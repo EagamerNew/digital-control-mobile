@@ -1,59 +1,45 @@
-<RadSideDrawer tkExampleTitle tkToggleNavButton>
-    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
-        <StackLayout class="sideTitleStackLayout">
-            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
-        </StackLayout>
-        <ScrollView row="1">
-            <StackLayout class="sideStackLayoutMenu side">
-                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Список учащихся" class="sideLabel sideLightGrayLabel" (tap)="navigate('/all-students')" ></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Настройки" class="sideLabel sideLightGrayLabel" ></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
+<StackLayout style="background-color: #F5F5F5">
+    <StackLayout class="navBar">
+        <Image src="~/app/assets/logo.png" style="width: 120pt;height: 60pt !important;margin-top: 5pt"
+               stretch="aspectFit"></Image>
+    </StackLayout>
+    <GridLayout rows="6*,*">
+        <ScrollView row="0" class="container">
+            <GridLayout rows="*,*">
+
+                <GridLayout row="1" rows="*, auto" class="wrapper">
+                    <ScrollView row="0">
+                        <GridLayout rows="*,*,*,*,*">
+                            <Label row="0" text="Регистрация на занятие "
+                                   style="font-size: 22pt;text-align: center;color:rgb(37,44,50)"
+                                   textWrap="true"></Label>
+                            <Label row="1" text="«Автоматизация механизмов» "
+                                   style="font-size: 22pt;text-align: center;color:rgb(37,44,50)"
+                                   textWrap="true"></Label>
+                            <Label row="2" text="завершена!"
+                                   style="font-size: 22pt;text-align: center;color:rgb(37,44,50)"
+                                   textWrap="true"></Label>
+                            <StackLayout row="3" class="barcode" style="margin-top: 15">
+                                <Image src="~/app/assets/success.png" stretch="aspectFit"></Image>
+                            </StackLayout>
+                            <Label row="4" text="Заригистрировано {{size}} человек"
+                                   style="font-size: 15pt;text-align: center;color: rgb(37,44,50);margin-top: 15"
+                                   textWrap="true"></Label>
+                        </GridLayout>
+                    </ScrollView>
+                </GridLayout>
+            </GridLayout>
         </ScrollView>
-    </GridLayout>
-    <StackLayout tkMainContent style="background-color: #F5F5F5">
-        <StackLayout class="navBar">
-            <GridLayout rows="*" columns="2*,20*">
-                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10" stretch="aspectFit"></Image>
-                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+        <StackLayout row="1">
+            <GridLayout rows="*">
+                <StackLayout row="0">
+                    <GridLayout rows="*" style="text-align: center">
+                        <Button text="Вернутся на главную" style="width: 94%" shadow="6"
+                                class="time" (tap)="navigate('/teacherLesson')"
+                        ></Button>
+                    </GridLayout>
+                </StackLayout>
             </GridLayout>
         </StackLayout>
-        <GridLayout rows="6*,*">
-            <ScrollView row="0" class="container">
-                <GridLayout rows="*,*">
-
-                    <GridLayout row="1" rows="*, auto" class="wrapper">
-                        <ScrollView row="0">
-                            <GridLayout rows="*,*,*">
-                                <Label row="0" text="Регистрация завершена!" style="font-size: 25;text-align: center"
-                                       textWrap="true"></Label>
-                                <StackLayout row="1" class="barcode" style="margin-top: 15">
-                                    <Image src="~/app/assets/success.png" stretch="aspectFit"></Image>
-                                </StackLayout>
-                                <Label row="2" text="Заригистрировано {{size}} человек"
-                                       style="font-size: 16;text-align: center;color: #A8A8A8;margin-top: 15"
-                                       textWrap="true"></Label>
-
-                            </GridLayout>
-                        </ScrollView>
-                    </GridLayout>
-                </GridLayout>
-            </ScrollView>
-            <StackLayout row="1">
-                <GridLayout rows="*">
-                    <StackLayout row="0" style="width: 90%;height: 40;background-color: #AE00FF;">
-                        <GridLayout rows="*" style="text-align: center">
-                            <Label row="0" text="Вернутся на главную" (tap)="navigate('/teacherLesson')"
-                                   style="font-size: 16;color: white"></Label>
-                        </GridLayout>
-                    </StackLayout>
-                </GridLayout>
-            </StackLayout>
-        </GridLayout>
-    </StackLayout>
-</RadSideDrawer>
+    </GridLayout>
+</StackLayout>

@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@a
 import {RouterExtensions} from 'nativescript-angular';
 import {RadSideDrawerComponent} from 'nativescript-ui-sidedrawer/angular';
 import {RadSideDrawer} from 'nativescript-ui-sidedrawer';
-import {Page} from 'tns-core-modules/ui/page';
+import {isIOS, Page} from 'tns-core-modules/ui/page';
 import {User} from '@src/app/core/model/user';
 
 @Component({
@@ -12,11 +12,13 @@ import {User} from '@src/app/core/model/user';
 })
 export class AllStudentsComponent implements AfterViewInit, OnInit {
     user: User = new User();
+    ios: boolean;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 page: Page) {
         page.actionBarHidden = true;
+        this.ios = isIOS;
     }
 
     ngOnInit() {
@@ -31,6 +33,7 @@ export class AllStudentsComponent implements AfterViewInit, OnInit {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
     }
+
     logout() {
         require('nativescript-localstorage');
         localStorage.removeItem('user');

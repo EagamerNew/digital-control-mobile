@@ -1,43 +1,53 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<GridLayout rows="3*,6*,*" class="container">
+<GridLayout rows="50,500,*" class="container" style="margin-top: 10" ]>
     <GridLayout row="0">
         <StackLayout class="logo">
             <Image src="~/app/assets/logo.png" stretch="aspectFit"></Image>
         </StackLayout>
     </GridLayout>
-    <GridLayout row="1" rows="*, auto" class="wrapper">
+    <GridLayout row="1" rows="auto, auto" style="margin-top: 26%">
         <ScrollView row="0">
-            <GridLayout rows="2*,3*,4*,*,*">
+            <GridLayout rows="2*,3*,4*,*">
                 <StackLayout row="0" class="login-btn text-center tittle">
-                    <Label text="Вход" style="color:#585858;font-size: 25;margin-bottom: 10" textWrap="true"></Label>
+                    <Label text="Вход в систему" style="color:#585858;font-size: 20;font-weight: bold;"
+                           textWrap="true"></Label>
                 </StackLayout>
                 <StackLayout row="1" class="login-btn">
-                    <TextView hint="Телефон или e-mail" [(ngModel)]="login.email" class="input input-border"></TextView>
+                    <TextField shadow="6" icon="f469" iconSize="40" iconColor="rgba(240,248,255,1)"
+                               fieldHint="briefcase-medical" hint="Телефон или e-mail" returnKeyType="next"
+                               [(ngModel)]="login.email"
+                               class="input input-border text"></TextField>
                 </StackLayout>
                 <StackLayout row="2" class="login-btn">
-                    <TextField secure="true" hint="Пароль" [(ngModel)]="login.password"
-                               class="input input-border"></TextField>
+                    <GridLayout columns="*,auto" shadow="6" class=" input input-border text">
+
+                        <TextField col="0" secure="{{secure}}" style="margin-top: -5pt" hint="Пароль"
+                                   [(ngModel)]="login.password"
+                        ></TextField>
+                        <Image *ngIf="secure" col="1" src="~/app/assets/visibility.png" style="width:25;height: 25"
+                               (tap)="secured()"
+                               stretch="aspectFit"></Image>
+                        <Image *ngIf="!secure" col="1" src="~/app/assets/visibility_off.png" style="width:25;height: 25"
+                               (tap)="secured()"
+                               stretch="aspectFit"></Image>
+
+                    </GridLayout>
                 </StackLayout>
                 <StackLayout row="3" class="login-btn">
-                    <Button text="Войти" class="my-button input-border" style="height: 40"
+                    <Button text="Войти" shadow="8" class="my-button input-border" style="height: 48"
                             (tap)="Login($event)"></Button>
-                </StackLayout>
-                <StackLayout row="4" class="login-btn text-center reset">
-                    <Label text="Забыли пароль?" style="color:#585858;" textWrap="true"></Label>
                 </StackLayout>
             </GridLayout>
         </ScrollView>
     </GridLayout>
-    <StackLayout row="2" style="margin-top: -30">
-        <GridLayout rows="2*,3*">
-            <StackLayout row="0" class="text-center registor">
-                <Label text="Еще не зарегистрированы ?" textWrap="true" style="color:#585858;"></Label>
-            </StackLayout>
-            <StackLayout row="1" class="text-center registor2">
-                <Label text="Зарегистрировться" textWrap="true" (tap)="navigate('/registration')"
-                       style="color:#585858;"></Label>
-            </StackLayout>
-        </GridLayout>
+    <StackLayout row="2" style="">
+        <StackLayout class="text-center registor2" [class.android]="!ios">
+            <GridLayout columns="auto,auto,auto" style="horizontal-align: center">
+                <Label col="0" text="© 2019 " textWrap="true" style="color:#585858;"></Label>
+                <Label col="1" text="Digital Control."
+                       textWrap="true" style="color:rgb(174,0,255);"></Label>
+                <Label col="2" text="Все права принадлежат народу."
+                       textWrap="true" style="color:#585858;"></Label>
+            </GridLayout>
+        </StackLayout>
     </StackLayout>
 </GridLayout>

@@ -5,14 +5,17 @@ import {AppRoutingModule} from '@src/app/app-routing.module';
 import {AppComponent} from '@src/app/app.component';
 import {HomeComponent} from '@src/app/home/home.component';
 import {NativeScriptFormsModule} from 'nativescript-angular';
-import { RegisterFinishComponent } from '@src/app/components/register-finish/register-finish.component';
-import { AllStudentsComponent } from '@src/app/components/all-students/all-students.component';
-import { StudentProfileComponent } from '@src/app/components/student-profile/student-profile.component';
-import { StudentLessonComponent } from '@src/app/components/student-lesson/student-lesson.component';
-import { RegistrationComponent } from '@src/app/components/registration/registration.component';
-import { SetNewPasswordComponent } from '@src/app/components/set-new-password/set-new-password.component';
+import {RegisterFinishComponent} from '@src/app/components/register-finish/register-finish.component';
+import {AllStudentsComponent} from '@src/app/components/all-students/all-students.component';
+import {StudentProfileComponent} from '@src/app/components/student-profile/student-profile.component';
+import {StudentLessonComponent} from '@src/app/components/student-lesson/student-lesson.component';
+import {RegistrationComponent} from '@src/app/components/registration/registration.component';
+import {SetNewPasswordComponent} from '@src/app/components/set-new-password/set-new-password.component';
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
 import {HttpClientModule} from '@angular/common/http';
+import {NgShadowModule} from 'nativescript-ngx-shadow';
+import {RichTextFieldModule} from 'nativescript-rich-textfield/angular';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -28,7 +31,9 @@ import {HttpClientModule} from '@angular/common/http';
         BrowserModule,
         AppRoutingModule,
         NativeScriptFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgShadowModule,
+        RichTextFieldModule
     ],
     providers: [],
     bootstrap: [AppComponent]

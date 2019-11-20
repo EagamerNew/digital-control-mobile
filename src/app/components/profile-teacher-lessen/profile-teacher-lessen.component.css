@@ -3,6 +3,14 @@ button {
     horizontal-align: center;
 }
 
+.iosIcon {
+    margin-top: 7;
+}
+
+.androidIcon {
+    margin-top: 5
+}
+
 .drawerContentText {
     font-size: 13;
     padding: 10;
@@ -14,9 +22,10 @@ button {
 }
 
 .sideStackLayout {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
-.side{
+
+.side {
     margin-right: 15;
     margin-left: 15;
 }
@@ -28,23 +37,46 @@ button {
 }
 
 .sideTitleStackLayout {
-    background-color: #343434;
-    height: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 80pt;
 }
 
 .navtext {
-    color: aliceblue;
-    margin-top: 50%;
-    margin-left: 10%;
+    color: rgb(37, 44, 50);
+    font-size: 17pt;
+    margin-top: 52%;
 }
 
 .sideLabel {
-    padding: 15;
+    font-size: 17pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    color: rgb(37, 44, 50);
+}
+
+.left {
+    margin-top: 1;
+}
+.iosExit{
+    margin-top: 250pt
+}
+.androidExit{
+    margin-top: 321pt
+}
+.navBar {
+    margin-bottom: 20;
+    height: 40pt;
 }
 
 .sideLightGrayLabel {
-    background-color: white;
-    font-size: 14;
+    padding-left: 15pt;
+    background-color: rgba(159, 52, 209, 0.05);
+    color: rgb(159, 52, 209);
+    font-size: 17pt;
+    font-family: bold;
+}
+.space {
+    height: 10pt;
 }
 .container {
     margin-right: 20;
@@ -53,19 +85,22 @@ button {
 
 .box {
     background-color: white;
-    height: 70;
-    width: 150;
+    border-radius: 8pt 8pt 8pt 8pt;
+    height: 90pt;
+    width: 156pt;
     margin-top: 20;
 }
 
 .my-button {
     android-elevation: 4;
-    background-color: #AE00FF;
-    border-color: darkolivegreen;
-    color: whitesmoke;
-    font-size: 14;
+    background-color: rgb(174, 0, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 16pt;
+    height: 52pt;
     width: 100%;
-    height: 40;
+    border-radius: 8pt 8pt 8pt 8pt;
+
 }
 
 .student-box {
@@ -74,10 +109,19 @@ button {
     margin-top: 10;
 }
 
+.box-lesson {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8pt 8pt 8pt 8pt;
+    height: 108pt;
+    width: 90%;
 
-
-.navBar {
-    margin-bottom: 20;
-    height: 50;
-    background-color: #343434;
 }
+
+.box-lesson-start {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8pt 8pt 8pt 8pt;
+    height: 142pt;
+    width: 90%;
+
+}
+

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterExtensions} from 'nativescript-angular';
-import {Page} from 'tns-core-modules/ui/page';
+import {isIOS, Page} from 'tns-core-modules/ui/page';
 import {Login} from '@src/app/core/model/login';
 import {AuthService} from '@src/app/core/services/auth.service';
 
@@ -11,11 +11,13 @@ import {AuthService} from '@src/app/core/services/auth.service';
 })
 export class HomeComponent implements OnInit {
     login: Login = new Login();
-
+    secure = true;
+    ios:boolean;
     constructor(private router: RouterExtensions,
                 page: Page,
                 private authService: AuthService) {
         page.actionBarHidden = true;
+        this.ios = isIOS;
     }
 
     ngOnInit() {
@@ -43,7 +45,6 @@ export class HomeComponent implements OnInit {
                         okButtonText: 'OK'
                     });
                 }
-                // this.router.navigate(['/home'], {transition: {name: 'slide'}});
             });
 
     }
@@ -51,5 +52,9 @@ export class HomeComponent implements OnInit {
     navigate(s: string) {
         this.router.navigate([s], {transition: {name: 'slide'}});
 
+    }
+
+    secured() {
+        this.secure = !this.secure;
     }
 }

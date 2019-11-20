@@ -76,6 +76,7 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
         this.service.newQR(this.newQR)
             .subscribe(res => {
                 this.qrCode = this.newQR.qrText;
+                console.log(this.qrCode+'==')
                 this.getStudents();
                 this.timeOut();
             });

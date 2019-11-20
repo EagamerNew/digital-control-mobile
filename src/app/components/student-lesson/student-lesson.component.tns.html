@@ -1,76 +1,180 @@
 <RadSideDrawer tkExampleTitle tkToggleNavButton>
-    <GridLayout tkDrawerContent rows="100, *" class="sideStackLayout">
-        <StackLayout class="sideTitleStackLayout">
-            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+    <GridLayout tkDrawerContent rows="auto,auto,*" class="sideStackLayout">
+        <StackLayout row="0" class="sideTitleStackLayout">
+            <GridLayout columns="auto,*" class="container">
+                <Image col="0" src="~/app/assets/logo.png" style="width: 120pt;height: 60pt;"></Image>
+            </GridLayout>
+            <!--            <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>-->
         </StackLayout>
-        <ScrollView row="1">
-            <StackLayout class="sideStackLayout side">
-                <Label text="Главная" class="sideLabel sideLightGrayLabel" (tap)="navigate('/teacherLesson')"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Мой профил" class="sideLabel sideLightGrayLabel"
-                       (tap)="navigate('/profile/1')"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Настройки" class="sideLabel sideLightGrayLabel"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-                <Label text="Выйти" class="sideLabel sideLightGrayLabel" (tap)="logout()"></Label>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
-        </ScrollView>
-    </GridLayout>
-    <StackLayout tkMainContent style="background-color: #F5F5F5">
-        <StackLayout class="navBar">
-            <GridLayout rows="*" columns="2*,20*">
-                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()" style="margin-left: 10"
-                       stretch="aspectFit"></Image>
-                <Image row="0" col="1" src="~/app/assets/logo.png" style="width: 150;height: 50 !important;" stretch="aspectFit"></Image>
+        <StackLayout row="1" class="container" style="margin-top: 12pt;margin-bottom: 17pt">
+            <GridLayout rows="*,*">
+                <StackLayout row="0">
+                    <Label text="{{user.name}} {{user.lastname}}" class="navtext"></Label>
+
+                </StackLayout>
+                <StackLayout row="1">
+                    <Label text="Достык Education"
+                           style="color: rgba(37,44,50,0.6);font-size: 15pt"></Label>
+                </StackLayout>
             </GridLayout>
         </StackLayout>
-        <ScrollView class="container">
+        <ScrollView row="2" style="margin-top: 10pt">
+            <GridLayout rows="*,*,*,20*" class="sideStackLayout ">
+                <GridLayout row="0" rows="*" columns="auto,*">
+                    <Label col="0" style="background-color: rgb(159,52,209);width: 4pt"></Label>
+                    <Label col="1" text="Главная" class="sideLabel sideLightGrayLabel"
+                           (tap)="navigate('/studentLesson')"></Label>
+                </GridLayout>
+                <Label row="1" text="Мой профиль" class="sideLabel side" style="color: rgb(37, 44, 50);"
+                       (tap)="navigate('/profile/1')"></Label>
+                <Label row="2" text="Настройки" class="sideLabel side" style="color: rgb(37, 44, 50);"></Label>
+                <GridLayout row="3 " columns="auto,*" style="margin-left: 24pt" [class.iosExit]="ios"
+                            [class.androidExit]="!ios">
+                    <Image col="0" src="~/app/assets/log_out.png"
+                           style="height: 14pt;width: 12pt"
+                    ></Image>
+                    <Label col="1" text="Выйти из системы " class="sideLabel side"
+                           style="color: rgb(37, 44, 50);"
+                           (tap)="logout()"></Label>
+                </GridLayout>
+            </GridLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout tkMainContent style="background-color: rgb(255,255,255)">
+        <StackLayout class="navBar">
+            <GridLayout rows="*" columns="2*,16*">
+                <Image row="0" col="0" src="~/app/assets/menu.png" (tap)="openDrawer()"
+                       style="margin-left: 10;margin-top: 5pt;width: 24pt;height: 13.5pt"
+                       stretch="aspectFit"></Image>
+                <Image row="0" col="1" src="~/app/assets/logo.png"
+                       style="width: 120pt;height: 60pt !important;margin-top: 5pt"
+                       stretch="aspectFit"></Image>
+            </GridLayout>
+        </StackLayout>
+        <ScrollView>
             <GridLayout rows="*,*,*,*,*">
                 <StackLayout row="1">
                     <GridLayout rows="*,*">
-                        <Label row="0" text="Добро пожаловать," style="font-size: 20"></Label>
-                        <Label row="1" text="{{user.name}} {{user.lastname}}!" style="font-size: 20"></Label>
-                    </GridLayout>
-                </StackLayout>
-                <StackLayout row="3" style="margin-top: 30">
-                    <GridLayout rows="*,*,*,*">
-                        <StackLayout row="0">
-                            <Label row="0" text="Следующий урок" style="font-size: 14"></Label>
-                        </StackLayout>
-                        <StackLayout row="1" style="margin-top: 10">
-                            <GridLayout rows="*" columns="*,*">
-                                <Label row="0" col="0" text="Автоматизация" style="font-size: 20"></Label>
-                                <Label row="0" col="1" text="16:00-17:00"
-                                       style="font-size: 20;text-align:right"></Label>
+                        <Label row="0" class="container" text="Ваша успеваемость"
+                               style="font-size: 22pt;color:rgb(37,44,50);height: 50pt"></Label>
+                        <GridLayout row="1" rows="*">
+                            <StackLayout row="0" style="height: 140pt">
+                                <StackLayout class="box-lesson" shadow="6">
+                                    <GridLayout rows="*,*,*" style="margin-top: 24pt">
 
-                            </GridLayout>
-                        </StackLayout>
-                        <StackLayout row="2" style="margin-top: 12">
-                            <Button *ngIf="true" text="Зарегистрироваться" class="my-button input-border"
-                                    (tap)="Registration()"></Button>
-                            <Label *ngIf="false" text="Вы на уроке" style="font-size: 14"></Label>
-                        </StackLayout>
-                        <StackLayout row="3" style="margin-top: 20;">
-                            <GridLayout rows="*,*,*">
-                                <StackLayout row="0">
-                                    <Label text="Успеваемость" style="font-size: 14;"></Label>
-                                </StackLayout>
-                                <StackLayout row="1" class="boxes">
-                                    <GridLayout rows="*,*, *">
-                                        <Progress [value]="progressValue" row="0"
+                                        <GridLayout row="0" style="margin-left: 24pt" columns="auto,*">
+                                            <Image row="0" col="0" src="~/app/assets/{{progressColor}}.png"
+                                                   style="height: 8pt;width: 8pt"
+                                            ></Image>
+                                            <Label row="0" col="1" text="85%"
+                                                   style="font-size: 28pt;color: rgb(37,44,50);margin-left: 15pt;margin-top: -3pt"></Label>
+                                        </GridLayout>
+                                        <Label row="1" text="Процент посещаемости занятий"
+                                               style="font-size: 13pt;color: rgba(37,44,50,0.4);margin-left: 24pt"></Label>
+                                        <Progress row="2" style="margin-top: -0.1" [value]="progressValue"
+                                                  color="{{progressColor}}"
                                                   maxValue="100" class="m-20">
                                         </Progress>
-                                        <Label row="1" text="Посещенные занятие 85%"
-                                               style="font-size: 14;margin-left: 20"></Label>
-                                        <Label row="2" text="Пропусщенные занятие 15%"
-                                               style="font-size: 14;margin-left: 20"></Label>
                                     </GridLayout>
                                 </StackLayout>
-                            </GridLayout>
+
+                            </StackLayout>
+                        </GridLayout>
+                    </GridLayout>
+                </StackLayout>
+
+                <StackLayout row="3" style="margin-top: 10pt">
+                    <GridLayout rows="*,*,*" class="container">
+                        <StackLayout row="0" style="height: 40">
+                            <Label text="График на сегодня, 25 апреля"
+                                   style="font-size: 20pt;color: rgb(37,44,50);"></Label>
                         </StackLayout>
                     </GridLayout>
                 </StackLayout>
+                <StackLayout row="4">
+                    <GridLayout rows="*,*,*">
+                        <StackLayout row="0" style="height:152pt">
+                            <StackLayout class="box-lesson-start" shadow="3">
+                                <GridLayout rows="*,*">
+                                    <GridLayout row="0" rows="*,*" style="margin: 16pt">
+                                        <Label row="0" text="Слесарь: автоматизация механизмов"
+                                               style="font-size:17pt;color:rgb(37,44,50)"></Label>
+                                        <Label row="1"
+                                               text=""
+                                               style="font-size: 15pt;color:rgb(37,44,50);margin-top: 2"></Label>
+                                    </GridLayout>
+                                    <StackLayout row="1">
+                                        <Button text="Зарегистрироваться" style="width: 94%" shadow="6"
+                                                shadowColor="rgb(174,0,255)" (tap)="Registration()"
+                                                class="my-button"
+                                        ></Button>
+                                    </StackLayout>
+                                </GridLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout row="1" style="height: 130">
+                            <StackLayout class="box-lesson" shadow="3">
+                                <GridLayout rows="*,*,*,*" style="margin: 16pt">
+                                    <Label row="0" text="Слесарь: автоматизация механизмов"
+                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>
+                                    <Label row="1"
+                                           text="12:00 - 13:50"
+                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>
+                                    <GridLayout row="2" columns="auto,*">
+                                        <StackLayout col="0">
+                                            <Image src="~/app/assets/Cross.png" [class.androidIcon]="!ios"
+                                                   [class.iosIcon]="ios"
+                                                   style="height: 9.8pt;width: 12pt;"></Image>
+                                        </StackLayout>
+                                        <Label col="1" text="Занятие не зарегистрировано"
+                                               style="font-size: 13pt;margin-left: 10pt;color:rgb(223,68,58)"></Label>
+                                    </GridLayout>
+                                </GridLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout row="2" style="height: 130">
+                            <StackLayout class="box-lesson" shadow="3">
+                                <GridLayout rows="*,*,*,*" style="margin: 16pt">
+                                    <Label row="0" text="Слесарь: автоматизация механизмов"
+                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>
+                                    <Label row="1"
+                                           text="12:00 - 13:50"
+                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>
+                                    <GridLayout row="2" columns="auto,*">
+                                        <StackLayout col="0">
+                                            <Image src="~/app/assets/lock.png" [class.androidIcon]="!ios"
+                                                   [class.iosIcon]="ios"
+                                                   style="height: 9.8pt;width: 12pt;"></Image>
+                                        </StackLayout>
+                                        <Label col="1" text="Регистрация пока недоступна"
+                                               style="font-size: 13pt;margin-left: 10pt;color:rgba(37,44,50,0.6)"></Label>
+                                    </GridLayout>
+                                </GridLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout row="3" style="height: 130">
+                            <StackLayout class="box-lesson" shadow="3">
+                                <GridLayout rows="*,*,*,*" style="margin: 16pt">
+                                    <Label row="0" text="Слесарь: автоматизация механизмов"
+                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>
+                                    <Label row="1"
+                                           text="12:00 - 13:50"
+                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>
+                                    <GridLayout row="2" columns="auto,*">
+                                        <StackLayout col="0">
+                                            <Image src="~/app/assets/lock.png" [class.androidIcon]="!ios"
+                                                   [class.iosIcon]="ios"
+                                                   style="height: 9.8pt;width: 12pt;"></Image>
+                                        </StackLayout>
+                                        <Label col="1" text="Регистрация пока недоступна"
+                                               style="font-size: 13pt;margin-left: 10pt;color:rgba(37,44,50,0.6)"></Label>
+                                    </GridLayout>
+                                </GridLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+
             </GridLayout>
         </ScrollView>
     </StackLayout>

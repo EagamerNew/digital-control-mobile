@@ -23,6 +23,7 @@ import {HttpModule} from '@angular/http';
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
 import {LocalStorageService} from '@src/app/core/services/local-storage.service';
 import {RegisterFinishStudentComponent} from '@src/app/components/register-finish-student/register-finish-student.component';
+import {NgShadowModule} from 'nativescript-ngx-shadow';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -52,7 +53,9 @@ import {RegisterFinishStudentComponent} from '@src/app/components/register-finis
         NativeScriptCommonModule,
         NativeScriptFormsModule,
         NativeScriptUIListViewModule,
-        HttpClientModule
+        HttpClientModule,
+        NgShadowModule,
+
 
 
     ],

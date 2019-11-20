@@ -1,50 +1,4 @@
 
-.drawerContentText {
-    font-size: 13;
-    padding: 10;
-}
-
-.drawerContentButton {
-    margin: 10;
-    horizontal-align: left;
-}
-
-.sideStackLayout {
-    background-color: white;
-}
-
-
-.sideStackLayoutMenu {
-    background-color: white;
-    margin-left: 10;
-    margin-right: 10;
-}
-
-.sideTitleStackLayout {
-    background-color: black;
-    height: 100%;
-}
-
-.container {
-    margin-right: 20;
-    margin-left: 20;
-    margin-top: 20;
-}
-
-.navtext {
-    color: aliceblue;
-    margin-top: 50%;
-    margin-left: 10%;
-}
-
-.sideLabel {
-    padding: 10;
-}
-
-.sideLightGrayLabel {
-    background-color: white;
-}
-
 .box {
     margin-top: 10;
     height: 110;
@@ -58,21 +12,57 @@ Progress {
 }
 
 .tittle {
-    font-size: 15;
-    color: lightgray;
+    font-size: 12pt;
+    margin-left: 5pt;
+    color: rgba(37, 44, 50, 0.4);
 }
 
-.value {
-    margin-top: 5;
-    font-size: 17;
+.androidTittle {
+    margin-top: 7pt;
+}
+
+.androidTittle2 {
+    margin-top: 14pt;
+}
+
+.valueIOS {
+    font-size: 17pt;
+    color: rgb(37, 44, 50);
+    margin-top: -29pt;
 
 }
 
-.navBar {
-    margin-bottom: 20;
-    height: 50;
-    background-color: #343434;
+.valueAndroid {
+    font-size: 17pt;
+    color: rgb(37, 44, 50);
+    margin-top: -9pt;
 }
+
+.box-lesson {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8pt 8pt 8pt 8pt;
+    height: 108pt;
+    width: 90%;
+
+}
+
+.box-profile {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8pt 8pt 8pt 8pt;
+    width: 90%;
+    height: 380pt;
+    padding: 16pt;
+}
+
+.box-profile2 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8pt 8pt 8pt 8pt;
+    width: 90%;
+    height: 356pt;
+    padding: 16pt;
+}
+
+
 .drawerContentText {
     font-size: 13;
     padding: 10;
@@ -84,9 +74,10 @@ Progress {
 }
 
 .sideStackLayout {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
-.side{
+
+.side {
     margin-right: 15;
     margin-left: 15;
 }
@@ -98,21 +89,53 @@ Progress {
 }
 
 .sideTitleStackLayout {
-    background-color: #343434;
-    height: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 80pt;
 }
 
 .navtext {
-    color: aliceblue;
-    margin-top: 50%;
-    margin-left: 10%;
+    color: rgb(37, 44, 50);
+    font-size: 17pt;
+    margin-top: 52%;
 }
 
 .sideLabel {
-    padding: 15;
+    font-size: 17pt;
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    color: rgb(37, 44, 50);
+}
+
+.left {
+    margin-top: 1;
+}
+
+.iosExit {
+    margin-top: 250pt
+}
+
+.androidExit {
+    margin-top: 321pt
+}
+
+.navBar {
+    margin-bottom: 20;
+    height: 40pt;
 }
 
 .sideLightGrayLabel {
-    background-color: white;
-    font-size: 14;
+    padding-left: 15pt;
+    background-color: rgba(159, 52, 209, 0.05);
+    color: rgb(159, 52, 209);
+    font-size: 17pt;
+    font-family: bold;
+}
+
+.space {
+    height: 10pt;
+}
+
+.container {
+    margin-right: 20;
+    margin-left: 20;
 }
