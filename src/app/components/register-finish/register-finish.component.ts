@@ -13,7 +13,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RegisterFinishComponent implements OnInit, AfterViewInit {
     user: User = new User();
-    size = 0
+    size = 0;
+    tittle: any;
+
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 page: Page,
@@ -22,6 +24,8 @@ export class RegisterFinishComponent implements OnInit, AfterViewInit {
             .forEach((params) => {
                 this.size = +params['size'];
             });
+        this.tittle = localStorage.getItem('lesson');
+
         page.actionBarHidden = true;
     }
 

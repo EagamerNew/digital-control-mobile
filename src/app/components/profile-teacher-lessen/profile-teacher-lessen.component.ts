@@ -19,11 +19,13 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     students: any[] = [];
     list: any[];
     ios: boolean;
+    lessonId: any;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 private service: AuthService,
                 page: Page) {
+
         page.actionBarHidden = true;
         this.ios = isIOS;
     }
@@ -120,6 +122,8 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
                 this.reponse = res;
                 require('nativescript-localstorage');
                 localStorage.setItem('lesson', res.id);
+                localStorage.setItem('lessonTittle', this.reponse);
+                this.lessonId = res.id;
                 this.service.getStudentsByLesson(res.id)
                     .subscribe(res => {
                         this.students = res;
@@ -145,7 +149,6 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     }
 
     Registration() {
-        console.log('clicked');
         this.router.navigate(['/qr'], {transition: {name: 'slide'}});
     }
 

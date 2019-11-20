@@ -12,11 +12,14 @@ import {User} from '@src/app/core/model/user';
 })
 export class RegisterFinishStudentComponent implements OnInit, AfterViewInit {
     user: User = new User();
+    tittle: any;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
                 page: Page) {
         page.actionBarHidden = true;
+        this.tittle = localStorage.getItem('lesson');
+
     }
 
     ngOnInit() {
@@ -50,6 +53,7 @@ export class RegisterFinishStudentComponent implements OnInit, AfterViewInit {
     navigate() {
         this.router.navigate(['/studentLesson'], {transition: {name: 'slide'}});
     }
+
     navigated(link) {
         this.router.navigate([link], {transition: {name: 'slide'}});
     }
