@@ -112,11 +112,12 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
             this.request.created = date.getDate() + '.';
         }
         if (date.getMonth().toString().length == 1) {
-            this.request.created += '0' + date.getMonth() + '.';
+            this.request.created += '0' + date.getMonth() + 1 + '.';
         } else {
             this.request.created += date.getMonth() + '.';
         }
         this.request.created += date.getFullYear().toString();
+        console.log(this.request);
         this.service.lessonTeacherGetMearest(this.request)
             .subscribe(res => {
                 this.reponse = res;
