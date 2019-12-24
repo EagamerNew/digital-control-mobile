@@ -71,7 +71,7 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     generateQRCodeText() {
-        this.time = 6;
+        this.time = 13;
         this.newQR.qrText = shajs('sha256').update(this.lesson + new Date().toLocaleString()).digest('hex');
         this.service.newQR(this.newQR)
             .subscribe(res => {
