@@ -26,6 +26,7 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
     list: any[];
     timing: any;
     timeOutIDs: any[] = [];
+    lessonTittle: any;
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
@@ -39,6 +40,7 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
         require('nativescript-localstorage');
         this.user = JSON.parse(localStorage.getItem('user'));
         this.newQR.lessonId = localStorage.getItem('lesson');
+        this.lessonTittle = localStorage.getItem('lessonTittle');
         this.generateQRCodeText();
         this.getStudents();
     }
@@ -76,7 +78,7 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
         this.service.newQR(this.newQR)
             .subscribe(res => {
                 this.qrCode = this.newQR.qrText;
-                console.log(this.qrCode+'==')
+                console.log(this.qrCode + '==');
                 this.getStudents();
                 this.timeOut();
             });
@@ -124,9 +126,14 @@ export class GenerateQrComponent implements AfterViewInit, OnInit, OnDestroy {
 
     end() {
         this.finish = true;
-        if(! this.students){
-            this.students = []
+        if (!this.students) {
+            this.students = [];
         }
-        this.router.navigate(['/endregistration/' + this.students.length], {transition: {name: 'slide'}});
+        this.service.closeLesson(this.lesson)
+            .subscribe(res => {
+                this.router.navigate(['/endregistration/' + this.students.length], {transition: {name: 'slide'}});
+            }, error => {
+                this.router.navigate(['/endregistration/' + this.students.length], {transition: {name: 'slide'}});
+            });
     }
 }

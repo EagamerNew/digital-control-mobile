@@ -8,6 +8,7 @@ import {isIOS, Page} from 'tns-core-modules/ui/page';
 import {User} from '@src/app/core/model/user';
 import {QrStudent} from '@src/app/core/model/qr-student';
 import {AuthService} from '@src/app/core/services/auth.service';
+import {StudentLesson} from '@src/app/core/model/student-lesson';
 
 @Component({
     selector: 'app-student-lesson',
@@ -20,6 +21,8 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
     progressColor: any;
     progressValue = 85;
     ios: boolean;
+    request: StudentLesson = new StudentLesson();
+    lessons: any[] = [];
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private barcodeScanner: BarcodeScanner,
@@ -43,6 +46,86 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
         require('nativescript-localstorage');
         this.user = JSON.parse(localStorage.getItem('user'));
         this.QR.studentId = this.user.id;
+        require('nativescript-localstorage');
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.request.day = new Date().getDay().toString();
+        if (new Date().getHours() == 9) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '1';
+            } else {
+                this.request.hour = '2';
+            }
+        } else if (new Date().getHours() == 10) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '2';
+            } else {
+                this.request.hour = '3';
+            }
+        } else if (new Date().getHours() == 11) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '3';
+            } else {
+                this.request.hour = '4';
+            }
+        } else if (new Date().getHours() == 12) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '4';
+            } else {
+                this.request.hour = '5';
+            }
+        } else if (new Date().getHours() == 13) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '5';
+            } else {
+                this.request.hour = '6';
+            }
+        } else if (new Date().getHours() == 14) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '6';
+            } else {
+                this.request.hour = '7';
+            }
+        } else if (new Date().getHours() == 15) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '7';
+            } else {
+                this.request.hour = '8';
+            }
+        } else if (new Date().getHours() == 16) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '8';
+            } else {
+                this.request.hour = '9';
+            }
+        } else if (new Date().getHours() == 17) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '9';
+            } else {
+                this.request.hour = '10';
+            }
+        } else if (new Date().getHours() == 18) {
+            if (new Date().getMinutes() < 20) {
+                this.request.hour = '10';
+            } else {
+                this.request.hour = '1';
+                this.request.day = (parseInt(this.request.day) + 1).toString();
+            }
+        } else if (new Date().getHours() > 19 && new Date().getHours() <= 23) {
+            this.request.hour = '1';
+            this.request.day = (parseInt(this.request.day) + 1).toString();
+        } else if (new Date().getHours() < 9) {
+            this.request.hour = '1';
+        }
+        if (parseInt(this.request.day) > 5) {
+            this.request.day = '1';
+        }
+        this.request.studentId = this.user.id;
+
+        console.log(this.request);
+        this.service.getLessonsTeacher(this.request)
+            .subscribe(res => {
+                this.lessons = res;
+            });
     }
 
     @ViewChild(RadSideDrawerComponent, {static: false}) public drawerComponent: RadSideDrawerComponent;
@@ -72,13 +155,15 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
 
     }
 
-    Registration() {
+    Registration(lesson) {
         this.barcodeScanner.scan(variables.scanOptions).then((result) => {
             this.QR.qrText = result.text;
-            alert(this.QR.qrText);
             this.service.checkQR(this.QR)
                 .subscribe(res => {
                     if (res) {
+                        require('nativescript-localstorage');
+                        localStorage.setItem('lessonTittle', lesson.name);
+
                         this.router.navigate(['/registeredStudent'], {transition: {name: 'slide'}});
                     } else {
                         alert({
@@ -93,4 +178,12 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
             this.barcodeScanner.stop();
         });
     };
+
+    getRowsLesson() {
+        let list = [];
+        for (let i = 0; i < this.lessons.length; i++) {
+            list.push('*,');
+        }
+        return list;
+    }
 }

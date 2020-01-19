@@ -25,6 +25,8 @@ export class RegisterFinishStudentComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         require('nativescript-localstorage');
         this.user = JSON.parse(localStorage.getItem('user'));
+        this.tittle = localStorage.getItem('lessonTittle');
+
     }
 
     logout() {

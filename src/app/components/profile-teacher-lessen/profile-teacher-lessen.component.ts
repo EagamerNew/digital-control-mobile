@@ -20,6 +20,7 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     list: any[];
     ios: boolean;
     lessonId: any;
+    lessons: [] = [];
 
     constructor(private _changeDetectionRef: ChangeDetectorRef,
                 private router: RouterExtensions,
@@ -118,20 +119,10 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
         }
         this.request.created += date.getFullYear().toString();
         console.log(this.request);
-        this.service.lessonTeacherGetMearest(this.request)
+        this.service.getLessonsTeacher(this.request)
             .subscribe(res => {
-                this.reponse = res;
-                require('nativescript-localstorage');
-                localStorage.setItem('lesson', res.id);
-                localStorage.setItem('lessonTittle', this.reponse);
-                this.lessonId = res.id;
-                this.service.getStudentsByLesson(res.id)
-                    .subscribe(res => {
-                        this.students = res;
-                    });
+                this.lessons = res;
             });
-
-
     }
 
     logout() {
@@ -149,7 +140,10 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
         this._changeDetectionRef.detectChanges();
     }
 
-    Registration() {
+    Registration(lesson) {
+        require('nativescript-localstorage');
+        localStorage.setItem('lesson', lesson.id);
+        localStorage.setItem('lessonTittle', lesson.title);
         this.router.navigate(['/qr'], {transition: {name: 'slide'}});
     }
 
@@ -200,5 +194,13 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
             this.list.push('*,');
         }
         return this.list;
+    }
+
+    getRowsLesson() {
+        let list = [];
+        for (let i = 0; i < this.lessons.length; i++) {
+            list.push('*,');
+        }
+        return list;
     }
 }

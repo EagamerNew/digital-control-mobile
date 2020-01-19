@@ -129,60 +129,60 @@
                     </GridLayout>
                 </StackLayout>
                 <StackLayout row="4">
-                    <GridLayout rows="*,*,*">
-                        <StackLayout row="0" style="height: 130">
-                            <StackLayout class="box-lesson" shadow="3">
-                                <GridLayout rows="*,*,*" style="margin: 16pt">
-                                    <Label row="0" text="Слесарь: автоматизация механизмов"
-                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>
-                                    <Label row="1"
-                                           text="10:00 - 11:50"
-                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>
-                                    <GridLayout row="2" columns="auto,*">
-                                        <StackLayout col="0">
-                                            <Image src="~/app/assets/Tick.png" [class.androidIcon]="!ios"
-                                                   [class.iosIcon]="ios"
-                                                   style="height: 9.8pt;width: 12pt;"></Image>
-                                        </StackLayout>
-                                        <Label col="1" text="Занятие зарегистрировано"
-                                               style="font-size: 13pt;margin-left: 10pt;color:rgb(62,194,95)"></Label>
-                                    </GridLayout>
-                                </GridLayout>
-                            </StackLayout>
-                        </StackLayout>
-                        <StackLayout row="1" style="height: 130">
-                            <StackLayout class="box-lesson" shadow="3">
-                                <GridLayout rows="*,*,*" style="margin: 16pt">
-                                    <Label row="0" text="Слесарь: автоматизация механизмов"
-                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>
-                                    <Label row="1"
-                                           text="12:00 - 13:50"
-                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>
-                                    <GridLayout row="2" columns="auto,*">
-                                        <StackLayout col="0">
-                                            <Image src="~/app/assets/Cross.png" [class.androidIcon]="!ios"
-                                                   [class.iosIcon]="ios"
-                                                   style="height: 9.8pt;width: 12pt;"></Image>
-                                        </StackLayout>
-                                        <Label col="1" text="Занятие не зарегистрировано"
-                                               style="font-size: 13pt;margin-left: 10pt;color:rgb(223,68,58)"></Label>
-                                    </GridLayout>
-                                </GridLayout>
-                            </StackLayout>
-                        </StackLayout>
-                        <StackLayout row="2" style="height: 152pt" *ngIf="lessonId">
+                    <GridLayout rows="{{getRowsLesson()}}" *ngFor="let less of lessons;let i = index">
+                        <!--                        <StackLayout row="0" style="height: 130">-->
+                        <!--                            <StackLayout class="box-lesson" shadow="3">-->
+                        <!--                                <GridLayout rows="*,*,*" style="margin: 16pt">-->
+                        <!--                                    <Label row="0" text="Слесарь: автоматизация механизмов"-->
+                        <!--                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>-->
+                        <!--                                    <Label row="1"-->
+                        <!--                                           text="10:00 - 11:50"-->
+                        <!--                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>-->
+                        <!--                                    <GridLayout row="2" columns="auto,*">-->
+                        <!--                                        <StackLayout col="0">-->
+                        <!--                                            <Image src="~/app/assets/Tick.png" [class.androidIcon]="!ios"-->
+                        <!--                                                   [class.iosIcon]="ios"-->
+                        <!--                                                   style="height: 9.8pt;width: 12pt;"></Image>-->
+                        <!--                                        </StackLayout>-->
+                        <!--                                        <Label col="1" text="Занятие зарегистрировано"-->
+                        <!--                                               style="font-size: 13pt;margin-left: 10pt;color:rgb(62,194,95)"></Label>-->
+                        <!--                                    </GridLayout>-->
+                        <!--                                </GridLayout>-->
+                        <!--                            </StackLayout>-->
+                        <!--                        </StackLayout>-->
+                        <!--                        <StackLayout row="1" style="height: 130">-->
+                        <!--                            <StackLayout class="box-lesson" shadow="3">-->
+                        <!--                                <GridLayout rows="*,*,*" style="margin: 16pt">-->
+                        <!--                                    <Label row="0" text="Слесарь: автоматизация механизмов"-->
+                        <!--                                           style="font-size:17pt;color:rgb(37,44,50)"></Label>-->
+                        <!--                                    <Label row="1"-->
+                        <!--                                           text="12:00 - 13:50"-->
+                        <!--                                           style="font-size: 15pt;color:rgb(37,44,50)"></Label>-->
+                        <!--                                    <GridLayout row="2" columns="auto,*">-->
+                        <!--                                        <StackLayout col="0">-->
+                        <!--                                            <Image src="~/app/assets/Cross.png" [class.androidIcon]="!ios"-->
+                        <!--                                                   [class.iosIcon]="ios"-->
+                        <!--                                                   style="height: 9.8pt;width: 12pt;"></Image>-->
+                        <!--                                        </StackLayout>-->
+                        <!--                                        <Label col="1" text="Занятие не зарегистрировано"-->
+                        <!--                                               style="font-size: 13pt;margin-left: 10pt;color:rgb(223,68,58)"></Label>-->
+                        <!--                                    </GridLayout>-->
+                        <!--                                </GridLayout>-->
+                        <!--                            </StackLayout>-->
+                        <!--                        </StackLayout>-->
+                        <StackLayout row="{{i}}" style="height: 152pt">
                             <StackLayout class="box-lesson-start" shadow="3">
                                 <GridLayout rows="*,*">
                                     <GridLayout row="0" rows="*,*" style="margin: 16pt">
-                                        <Label row="0" text="{{reponse.name}}"
+                                        <Label row="0" text="{{less.name}}"
                                                style="font-size:17pt;color:rgb(37,44,50)"></Label>
                                         <Label row="1"
-                                               text="{{getTime(reponse.timeStartId)}}-{{getTime(reponse.timeEndId)}}"
+                                               text="{{getTime(less.timeStartId)}}-{{getTime(less.timeEndId)}}"
                                                style="font-size: 15pt;color:rgb(37,44,50);margin-top: 2"></Label>
                                     </GridLayout>
                                     <StackLayout row="1">
                                         <Button text="Открыть регистрацию" style="width: 94%" shadow="6"
-                                                shadowColor="rgb(174,0,255)" (tap)="Registration()"
+                                                shadowColor="rgb(174,0,255)" (tap)="Registration(less)"
                                                 class="my-button"
                                         ></Button>
                                     </StackLayout>

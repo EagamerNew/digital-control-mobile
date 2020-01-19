@@ -24,7 +24,7 @@ export class RegisterFinishComponent implements OnInit, AfterViewInit {
             .forEach((params) => {
                 this.size = +params['size'];
             });
-        this.tittle = localStorage.getItem('lesson');
+        this.tittle = localStorage.getItem('lessonTittle');
 
         page.actionBarHidden = true;
     }

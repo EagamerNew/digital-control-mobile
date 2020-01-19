@@ -41,13 +41,16 @@ export class AuthService {
     newQR(from): Observable<any> {
         return this.http.post<any>('http://digitalcontrol.kz/functions/mobile/lesson/lesson-qr-update-post', from);
     }
+
     checkQR(from): Observable<any> {
         return this.http.post<any>('http://digitalcontrol.kz/functions/mobile/lesson/lesson-qr-student-update-post', from);
     }
+
     getStudentsByLesson(id): Observable<any> {
         return this.http.get<any>(
             'http://digitalcontrol.kz/functions/mobile/lesson/lesson-teacher-students-get?lessonId=' + id);
     }
+
     getStudentsByLessonActive(id): Observable<any> {
         return this.http.get<any>(
             'http://digitalcontrol.kz/functions/mobile/lesson/lesson-teacher-v2-students-get?lessonId=' + id);
@@ -55,5 +58,18 @@ export class AuthService {
 
     lessonTeacherGetMearest(from): Observable<any> {
         return this.http.post<any>('http://digitalcontrol.kz/functions/mobile/lesson/lesson-teacher-get-nearest-mob', from);
+    }
+
+    closeLesson(id): Observable<any> {
+        return this.http.get<any>(
+            'http://91.201.214.132:8080/lesson/close/lesson/' + id);
+    }
+
+    getLessonsTeacher(from): Observable<any> {
+        return this.http.post<any>('http://91.201.214.132:8080/lesson/read/teacher/lesson/list/byparameters', from);
+    }
+
+    getLessonsStudent(from): Observable<any> {
+        return this.http.post<any>('http://91.201.214.132:8080/lesson/read/student/lesson/list/byparameters', from);
     }
 }
