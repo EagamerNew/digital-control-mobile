@@ -58,72 +58,72 @@
                         <Label row="0" text="Добро пожаловать," style="font-size: 22pt;color: rgb(37,44,50)"></Label>
                         <Label row="1" text="{{user.name}} {{user.lastname}}"
                                style="font-size: 22pt;color: rgb(37,44,50)"></Label>
-                        <Label row="2" text="Достык Education"
-                               style="font-size: 15pt;margin-top: 10;color: rgba(37,44,50,0.6)"></Label>
+<!--                        <Label row="2" text="Достык Education"-->
+<!--                               style="font-size: 15pt;margin-top: 10;color: rgba(37,44,50,0.6)"></Label>-->
                     </GridLayout>
                 </StackLayout>
-                <StackLayout row="2" *ngIf="ios" style="height: 120">
-                    <GridLayout rows="*" columns="*,*">
-                        <StackLayout row="0" col="0" class="box" shadow="6">
-                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">
-                                <Label row="0" text="Программы" style="font-size: 17pt;color:rgb(37,44,50)"></Label>
-                                <GridLayout row="1" columns="auto,*">
-                                    <Image col="0" src="~/app/assets/graduate.png"
-                                           style="height: 26pt;width: 22pt"
-                                    ></Image>
-                                    <Label col="1" text="123"
-                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>
-                                </GridLayout>
-                            </GridLayout>
-                        </StackLayout>
-                        <StackLayout row="0" col="1">
-                            <StackLayout class="box" shadow="6">
-                                <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">
-                                    <Label row="0" text="Учещиеся" style="font-size: 17pt;color:rgb(37,44,50)"></Label>
-                                    <GridLayout row="1" columns="auto,*">
-                                        <Image col="0" src="~/app/assets/agenda.png"
-                                               style="height: 24pt;width: 18pt"
-                                        ></Image>
-                                        <Label col="1" text="5"
-                                               style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>
-                                    </GridLayout>
-                                </GridLayout>
-                            </StackLayout>
-                        </StackLayout>
-                    </GridLayout>
-                </StackLayout>
-                <StackLayout row="2" *ngIf="!ios" style="height: 120">
-                    <GridLayout rows="*" columns="*,*">
-                        <StackLayout row="0" col="0" class="box" shadow="6">
-                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">
-                                <Label row="0" text="Программы" style="font-size: 17pt;color:rgb(37,44,50)"></Label>
-                                <GridLayout row="1" columns="auto,*">
-                                    <Image col="0" src="~/app/assets/graduate.png"
-                                           style="height: 26pt;width: 22pt"
-                                    ></Image>
-                                    <Label col="1" text="123"
-                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>
-                                </GridLayout>
-                            </GridLayout>
-                        </StackLayout>
-                        <StackLayout row="0" col="1" class="box" shadow="6">
-                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">
-                                <Label row="0" text="Учещиеся" style="font-size: 17pt;color:rgb(37,44,50)"></Label>
-                                <GridLayout row="1" columns="auto,*">
-                                    <Image col="0" src="~/app/assets/agenda.png"
-                                           style="height: 28pt;width: 22pt"
-                                    ></Image>
-                                    <Label col="1" text="5"
-                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>
-                                </GridLayout>
-                            </GridLayout>
-                        </StackLayout>
-                    </GridLayout>
-                </StackLayout>
+<!--                <StackLayout row="2" *ngIf="ios" style="height: 120">-->
+<!--                    <GridLayout rows="*" columns="*,*">-->
+<!--                        <StackLayout row="0" col="0" class="box" shadow="6">-->
+<!--                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">-->
+<!--                                <Label row="0" text="Программы" style="font-size: 17pt;color:rgb(37,44,50)"></Label>-->
+<!--                                <GridLayout row="1" columns="auto,*">-->
+<!--                                    <Image col="0" src="~/app/assets/graduate.png"-->
+<!--                                           style="height: 26pt;width: 22pt"-->
+<!--                                    ></Image>-->
+<!--                                    <Label col="1" text="123"-->
+<!--                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>-->
+<!--                                </GridLayout>-->
+<!--                            </GridLayout>-->
+<!--                        </StackLayout>-->
+<!--                        <StackLayout row="0" col="1">-->
+<!--                            <StackLayout class="box" shadow="6">-->
+<!--                                <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">-->
+<!--                                    <Label row="0" text="Учещиеся" style="font-size: 17pt;color:rgb(37,44,50)"></Label>-->
+<!--                                    <GridLayout row="1" columns="auto,*">-->
+<!--                                        <Image col="0" src="~/app/assets/agenda.png"-->
+<!--                                               style="height: 24pt;width: 18pt"-->
+<!--                                        ></Image>-->
+<!--                                        <Label col="1" text="5"-->
+<!--                                               style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>-->
+<!--                                    </GridLayout>-->
+<!--                                </GridLayout>-->
+<!--                            </StackLayout>-->
+<!--                        </StackLayout>-->
+<!--                    </GridLayout>-->
+<!--                </StackLayout>-->
+<!--                <StackLayout row="2" *ngIf="!ios" style="height: 120">-->
+<!--                    <GridLayout rows="*" columns="*,*">-->
+<!--                        <StackLayout row="0" col="0" class="box" shadow="6">-->
+<!--                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">-->
+<!--                                <Label row="0" text="Программы" style="font-size: 17pt;color:rgb(37,44,50)"></Label>-->
+<!--                                <GridLayout row="1" columns="auto,*">-->
+<!--                                    <Image col="0" src="~/app/assets/graduate.png"-->
+<!--                                           style="height: 26pt;width: 22pt"-->
+<!--                                    ></Image>-->
+<!--                                    <Label col="1" text="123"-->
+<!--                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>-->
+<!--                                </GridLayout>-->
+<!--                            </GridLayout>-->
+<!--                        </StackLayout>-->
+<!--                        <StackLayout row="0" col="1" class="box" shadow="6">-->
+<!--                            <GridLayout rows="*,*" style="margin-top: 16pt;margin-left: 16pt;margin-bottom: 10">-->
+<!--                                <Label row="0" text="Учещиеся" style="font-size: 17pt;color:rgb(37,44,50)"></Label>-->
+<!--                                <GridLayout row="1" columns="auto,*">-->
+<!--                                    <Image col="0" src="~/app/assets/agenda.png"-->
+<!--                                           style="height: 28pt;width: 22pt"-->
+<!--                                    ></Image>-->
+<!--                                    <Label col="1" text="5"-->
+<!--                                           style="font-size: 22pt;margin-left: 10pt;color:rgb(174,0,255)"></Label>-->
+<!--                                </GridLayout>-->
+<!--                            </GridLayout>-->
+<!--                        </StackLayout>-->
+<!--                    </GridLayout>-->
+<!--                </StackLayout>-->
                 <StackLayout row="3" style="margin-top: 30">
                     <GridLayout rows="*,*,*" class="container">
                         <StackLayout row="0" style="height: 40">
-                            <Label text="График на сегодня, 25 апреля"
+                            <Label text="График на сегодня"
                                    style="font-size: 20pt;color: rgb(37,44,50);"></Label>
                         </StackLayout>
                     </GridLayout>
@@ -170,7 +170,8 @@
                         <!--                                </GridLayout>-->
                         <!--                            </StackLayout>-->
                         <!--                        </StackLayout>-->
-                        <StackLayout row="{{i}}" style="height: 152pt">
+                        <StackLayout row="{{i}}" style="height: 152pt"
+                                     *ngIf="less.status === 'created' && checkLessonTime(less)">
                             <StackLayout class="box-lesson-start" shadow="3">
                                 <GridLayout rows="*,*">
                                     <GridLayout row="0" rows="*,*" style="margin: 16pt">

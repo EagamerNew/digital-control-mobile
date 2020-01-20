@@ -122,9 +122,10 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
         this.request.studentId = this.user.id;
 
         console.log(this.request);
-        this.service.getLessonsTeacher(this.request)
+        this.service.getLessonsStudent(this.request)
             .subscribe(res => {
-                this.lessons = res;
+                this.lessons = res.data;
+                console.log(res)
             });
     }
 
@@ -178,6 +179,40 @@ export class StudentLessonComponent implements AfterViewInit, OnInit {
             this.barcodeScanner.stop();
         });
     };
+    checkLessonTime(less) {
+        let timeCode = this.getHourCode();
+        if (parseInt(less.timeStartId) <= timeCode && parseInt(less.timeEndId) >= timeCode) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    getHourCode() {
+        let hour = new Date().getHours();
+        if (hour == 9) {
+            return 1;
+        } else if (hour == 10) {
+            return 1;
+        } else if (hour == 11) {
+            return 3;
+        } else if (hour == 12) {
+            return 4;
+        } else if (hour == 13) {
+            return 5;
+        } else if (hour == 14) {
+            return 6;
+        } else if (hour == 15) {
+            return 7;
+        } else if (hour == 16) {
+            return 8;
+        } else if (hour == 17) {
+            return 9;
+        } else if (hour == 18) {
+            return 10;
+        }
+        return 11;
+    }
 
     getRowsLesson() {
         let list = [];

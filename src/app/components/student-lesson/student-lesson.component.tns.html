@@ -94,11 +94,12 @@
                 <StackLayout row="4">
                     <GridLayout rows="{{getRowsLesson()}}" *ngFor="let less of lessons;let i = index">
 
-                        <StackLayout row="{{i}}" style="height:152pt">
+                        <StackLayout row="{{i}}" style="height:152pt"
+                                     *ngIf="less.lessonCustom.status === 'created' && checkLessonTime(less.lessonCustom)">
                             <StackLayout class="box-lesson-start" shadow="3">
                                 <GridLayout rows="*,*">
                                     <GridLayout row="0" rows="*,*" style="margin: 16pt">
-                                        <Label row="0" text="{{less.name}}"
+                                        <Label row="0" text="{{less.lessonCustom.name}}"
                                                style="font-size:17pt;color:rgb(37,44,50)"></Label>
                                         <Label row="1"
                                                text=""
@@ -106,7 +107,7 @@
                                     </GridLayout>
                                     <StackLayout row="1">
                                         <Button text="Зарегистрироваться" style="width: 94%" shadow="6"
-                                                shadowColor="rgb(174,0,255)" (tap)="Registration(less)"
+                                                shadowColor="rgb(174,0,255)" (tap)="Registration(less.lessonCustom)"
                                                 class="my-button"
                                         ></Button>
                                     </StackLayout>

@@ -121,7 +121,7 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
         console.log(this.request);
         this.service.getLessonsTeacher(this.request)
             .subscribe(res => {
-                this.lessons = res;
+                this.lessons = res.data;
             });
     }
 
@@ -143,7 +143,7 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
     Registration(lesson) {
         require('nativescript-localstorage');
         localStorage.setItem('lesson', lesson.id);
-        localStorage.setItem('lessonTittle', lesson.title);
+        localStorage.setItem('lessonTittle', lesson.name);
         this.router.navigate(['/qr'], {transition: {name: 'slide'}});
     }
 
@@ -158,6 +158,42 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
 
     navigate(link: string) {
         this.router.navigate([link], {transition: {name: 'slide'}});
+    }
+
+    checkLessonTime(less) {
+        let timeCode = this.getHourCode();
+        if (parseInt(less.timeStartId) <= timeCode && parseInt(less.timeEndId) >= timeCode) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    getHourCode() {
+        let hour = new Date().getHours();
+        if (hour == 9) {
+            return 1;
+        } else if (hour == 10) {
+            return 1;
+        } else if (hour == 11) {
+            return 3;
+        } else if (hour == 12) {
+            return 4;
+        } else if (hour == 13) {
+            return 5;
+        } else if (hour == 14) {
+            return 6;
+        } else if (hour == 15) {
+            return 7;
+        } else if (hour == 16) {
+            return 8;
+        } else if (hour == 17) {
+            return 9;
+        } else if (hour == 18) {
+            return 10;
+        }
+        return 11;
+
     }
 
     getTime(time) {
@@ -188,18 +224,11 @@ export class ProfileTeacherLessenComponent implements AfterViewInit, OnInit {
 
     }
 
-    getRows() {
-        this.list = [];
-        for (let i = 0; i < this.students.length; i++) {
-            this.list.push('*,');
-        }
-        return this.list;
-    }
 
     getRowsLesson() {
-        let list = [];
-        for (let i = 0; i < this.lessons.length; i++) {
-            list.push('*,');
+        let list = '*';
+        for (let i = 0; i < this.lessons.length - 1; i++) {
+            list += ',*';
         }
         return list;
     }
